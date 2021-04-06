@@ -63,7 +63,7 @@ function animate(){
 
     for (let i = 0,; i < particleArray.length; i++){
         if (particleArray[i].radius <= 1){
-            particleArray.splice(1, 1);
+            particleArray.splice(i, 1);
         }
         particleArray[i].update();
         particleArray[i].draw();
