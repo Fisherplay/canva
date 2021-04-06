@@ -17,7 +17,7 @@ window.addEventListener('mousemove', function(e){
 });
 
 const fox = new Image();
-fox.src = 'fox1.png';
+fox.src = 'code.png';
 
 class Particle {
     constructor(){
