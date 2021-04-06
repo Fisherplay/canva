@@ -7,6 +7,15 @@ let particleArray = [];
 const numberOfParticles = 200;
 ctx.lineCap = 'round';
 
+const mouse = {
+    x: null,
+    y: null
+}
+window.addEventListener('mousemove', function(e){
+    mouse.x = e.x;
+    mouse.y = e.y;
+});
+
 const fox = new Image();
 fox.src = 'fox.png';
 
@@ -18,9 +27,10 @@ class Particle {
         this.speedY = Math.random() * 5 + 1;
         this.speedX = Math.random() * 3 - 1.5;
         this.angle = Math.random() * 360;
-        this.spin = Math.random() <0.5 ? 1 : -1;
+        this.spin = Math.random() < 0.5 ? 1 : -1;
         this.frameX = Math.floor(Math.random() * 3);
         this.frameY = Math.floor(Math.random() * 3);
+        this.spriteSize = 900/3;
     }
     update(){
         this.angle += 5;
@@ -34,7 +44,7 @@ class Particle {
         ctx.rotate(this.angle * Math.PI/360 * this.spin);
         ctx.drawImage(fox, this.frameX * this.spriteSize, this.frameY 
         * this.spriteSize, this.spriteSize, this.spriteSize, 0 - 
-        this.radius/2, this.radius, this.radius);
+        this.radius/2, 0 - this.radius/2, this.radius, this.radius);
         ctx.traslate(-this.x, -this.x);
         ctx.restore();
     }
